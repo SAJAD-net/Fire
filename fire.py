@@ -14,13 +14,11 @@ ap.add_argument("-p","--python",default="3",required=False,help="Install for one
 ap.add_argument("-c","--count",required=False,help="Count of modules to install")
 ap.add_argument("-a","--auto",nargs='?' ,required=False,help="Auto freezing and installing modules")
 args=vars(ap.parse_args())
-args["freeze"] = "s "
-args["install"] = " s" 
 
 #fine, this is a path variable of programm folder 
 path="$HOME/.fire"
 
-#following lines is path of home 
+#following lines is gete and saved a path of home 
 home=pathlib.Path.home()
 nhome=re.findall(r"\w*",str(home))
 home="/"+nhome[1]+"/"+nhome[3]
@@ -80,7 +78,7 @@ def Installer():
 						os.system("echo Installing >> %s/logs;date >> %s/loga;python%s -m pip install %s >> %s/logs"%(path,path,args["python"],line,path))
 						count+=1
 					except:
-						print("Error : Please Checking help")
+						print("Error : Please Checking internet and help")
 						file.close()
 						Help()
 	else:
