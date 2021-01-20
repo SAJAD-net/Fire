@@ -96,9 +96,9 @@ def Installer():
 def RUN():
 	if "-n" in sys.argv[:]:# this is run the initialize function
 		Initialize()
-	elif "-f" in sys.argv[:]:# thisis the freezer function
+	elif "-f" in sys.argv[:]:# this is calling the freezer function
 		Freezer()
-	elif "-i" in sys.argv[:]:# this is run the installer function
+	elif "-i" in sys.argv[:]:# and this is run the installer function
 		Installer()
 	elif "-a" in sys.argv[:]: # this is auto first run freeze function and second run installer function
 		Freezer()
