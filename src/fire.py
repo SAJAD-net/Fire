@@ -15,7 +15,7 @@ ap.add_argument("-c","--count",required=False,help="Count of modules to install"
 ap.add_argument("-a","--auto",nargs='?' ,required=False,help="Auto freezing and installing modules")
 args=vars(ap.parse_args())
 
-#fine, this is a path variable of programm folder 
+#fine, this is a path variable of program folder 
 path="$HOME/.fire"
 
 #following lines is gete and saved a path of home 
@@ -107,5 +107,5 @@ def RUN():
 		print("Error : Please enter following argument to works",end="")
 		Help()
 
-#in following line, called run function for run programm
+#in following line, called run function for run program
 RUN()
