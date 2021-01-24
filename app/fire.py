@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 ## --> this is just for fun :)
 
 #these is a require library for run app 
