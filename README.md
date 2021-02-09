@@ -8,7 +8,7 @@
 
 		python3 fire.py [arguments]
 
-## and you can look a help, for this rnu a following command:
+## and You can run the following command to see the help:
 	
 	python3 fire.py or python3 fire.py -h
 	
