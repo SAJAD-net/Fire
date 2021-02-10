@@ -11,7 +11,10 @@
 ## and You can run the following command to see the help:
 	
 	python3 fire.py or python3 fire.py -h
-	
+
+## PreView
+
+![fire](https://user-images.githubusercontent.com/71703544/107477511-d9726380-6b45-11eb-8601-6c89750d61d9.png)
 
 my email : sajadsajad.sch@gmail.com
 
