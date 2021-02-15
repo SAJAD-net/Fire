@@ -63,7 +63,7 @@ def Initialize():
 		h = home+"/.fire"
 		os.mkdir(h)
 		os.system("touch $HOME/.fire/logs;touch $HOME/.fire/Modules")
-		print("[+]-Initializing Finished ! :)")
+		print("[+]- Initializing Finished ! :)")
 
 #this function is modules freezer
 def Freezer():
