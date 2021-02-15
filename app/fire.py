@@ -39,7 +39,7 @@ def Help():
 	2- -f --> Freezing Modules 
 	3- -m --> number of your modules
 	4- -i -p --> installing Modules for this version of python
-	5- -i -c --> 20 installing 20 Modules only
+	5- -i -c 20 --> installing 20 Modules only
 	6- -f -i -c 20 -->  Freezing and installing 20 Modules only
 	7- -p --> working on this version of python 
 	8- -a -p 3 --> auto freezing and installing all modules\n\tfor this version of python 
