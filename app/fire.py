@@ -43,7 +43,7 @@ def Help():
 	6- -f -i -c 20 -->  Freezing and installing 20 Modules only
 	7- -p --> working on this version of python 
 	8- -a -p 3 --> auto freezing and installing all modules\n\tfor this version of python 
-	9- -u --> upgrade all modules
+	9- -u -p --> upgrade all modules of this version of python
 	10- -v --> version of fire app
 
 Example :
@@ -60,9 +60,9 @@ def Initialize():
 			print("[!]- you are also initialized ... :)")
 	else:
 		print("[+]- Initializing ...")
-		os.system("mkdir $HOME/.fire >> $HOME/.fire/logs")
-		os.system("touch $HOME/.fire/logs >> $HOME/.fire/logs;touch $HOME/.fire/Modules >> $HOME/.fire/logs")
-		#os.system("echo $HOME > .initialize")
+		h = home+"/.fire"
+		os.mkdir(h)
+		os.system("touch $HOME/.fire/logs;touch $HOME/.fire/Modules")
 		print("[+]-Initializing Finished ! :)")
 
 #this function is modules freezer
@@ -73,7 +73,7 @@ def Freezer():
 
 #this function is modules intaller 
 def Installer():
-	print("[+]- Strating installation ...")
+	print("[+]- Strated installation ...")
 	if "-c" in sys.argv[:]:
 		scope=sys.argv[:].index("-c")
 		scope=sys.argv[scope+1]
@@ -102,6 +102,14 @@ def Installer():
 					break
 		file.close()
 #fine, this is main function for manage and run functions
+def upgrade(pipv=3):
+	print("[+]- Strated upgrading ...")
+	with open("%s/.fire/Modules"%(home),"r") as modules:
+		for line in modules:
+			co = "pip"+str(pipv)+" install  --upgrade "+line
+			print(co)
+			os.system(co)
+	print("[+]- Finished upgrading ...")
 def modules():
 	num = 0
 	with open("%s/.fire/Modules"%(home),"r") as modules:
@@ -124,6 +132,11 @@ def RUN():
 		Installer()
 	elif "-m" in sys.argv[:]:
 		modules()
+	elif "-u" in sys.argv[:]:
+		if pipv:=args["python"]:
+			upgrade(pipv)
+		else:
+			upgrade()
 	elif "-v" in sys.argv[:]:
 		version()
 	else:
