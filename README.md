@@ -14,7 +14,12 @@
 
 ## PreView
 
-![fire](https://user-images.githubusercontent.com/71703544/107477511-d9726380-6b45-11eb-8601-6c89750d61d9.png)
+![fire](https://user-images.githubusercontent.com/71703544/108030173-c0155f80-6ffc-11eb-8d42-3a82016fd784.png)
+
+![fire-1](https://user-images.githubusercontent.com/71703544/108030191-c73c6d80-6ffc-11eb-8158-c8139054f2a1.png)
+
+![fire-help](https://user-images.githubusercontent.com/71703544/108030706-aa546a00-6ffd-11eb-8b6a-8d3f1bb17537.png)
+
 
 my email : sajadsajad.sch@gmail.com
 
