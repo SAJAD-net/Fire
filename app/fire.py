@@ -154,7 +154,7 @@ def modules():
 	print("[+]- number of your modules is --> %i"%num)
 	modules.close()
 def version():
-	print("[+]- Fire version 2.0 ")
+	print("[+]- Fire version 1.0 ")
 #fine, this is main function for manage and run functions
 def RUN():
 	if "-n" in sys.argv[:]:# this is run the initialize function
