@@ -6,7 +6,7 @@
 import os,sys,argparse
 from time import sleep
 import pathlib,re
-
+import shutil
 #define a arguments in following lines  
 ap=argparse.ArgumentParser()
 ap.add_argument("-n","--new",nargs='?' ,required=False,help="Initializing ...")
@@ -24,7 +24,7 @@ ap.add_argument("-v","--version",nargs='?' ,required=False,help="Print a version
 args=vars(ap.parse_args())
 
 #fine, this is a path variable of program folder 
-path="$HOME/.fire"
+path="$HOME/.fire/out"
 
 #following lines is gete and saved a path of home 
 home=pathlib.Path.home()
@@ -55,20 +55,56 @@ Example :
 
 #this function is intitalizer
 def Initialize():
+	pwd = os.getcwd()
+	fh = home+"/.fire"
 	if os.path.exists("%s/.fire"%home):
-		if os.path.isfile("%s/.fire/logs"%home) and os.path.isfile("%s/.fire/Modules"%home):
+		if os.path.isfile("%s/.fire/out/logs"%home) and os.path.isfile("%s/.fire/out/Modules"%home):
 			print("[!]- you are also initialized ... :)")
 	else:
 		print("[+]- Initializing ...")
 		h = home+"/.fire"
 		os.mkdir(h)
-		os.system("touch $HOME/.fire/logs;touch $HOME/.fire/Modules")
+		os.chdir(fh)
+		os.mkdir("app")
+		os.mkdir("out")
+		os.chdir("out")
+		os.system("touch logs Modules")
+		os.chdir(pwd)
+		shutil.copy("fire.py", fh+"/app")
+		os.chdir("../")
+		for i in os.listdir("."):
+			if os.path.isfile(i):
+				shutil.copy(i, fh)
+
+		#os.system("touch $HOME/.fire/out/logs;touch $HOME/.fire/out/Modules")
+		os.chdir(home+"/")
+		status = False
+		for file in os.listdir("."):
+			if file == ".bashrc":
+				with open(".bashrc", "a+") as file:
+					for line in file.readlines():
+						if line == "alias fire":
+							status = True
+					if status == False:
+						file.write("alias fire = \"python3 $HOME/.fire/app/fire,py\" ")
+				file.close()
+			elif file == ".zshrc":
+				with open(".zshrc", "a+") as file:
+					for line in file.readlines():
+						if line == "alias fire":
+							status = True
+					if status == False:
+						file.write("alias fire = \"python3 $HOME/.fire/app/fire,py\" ")
+				file.close()	
+
+		print("[+]- fire app installed in %s/.fire"%home)
+		print("[+]- You can after restart, type fire <argument> to running app !")
 		print("[+]- Initializing Finished ! :)")
 
 #this function is modules freezer
 def Freezer():
 	print("[+]- Freezing a modules ...")
-	os.system("echo Freezing >> %s/logs;date >> %s/logs;cp %s/Modules %s/Modules.backup >> %s/logs;python%s -m pip freeze > Modules;mv Modules %s/Modules"%(path,path,path,path,path,args["python"],path))
+	os.system("echo Freezing >> %s/logs;date >> %s/logs;cp %s/Modules %s/Modules.backup >> %s/logs;python%s -m pip freeze > %s/Modules;"%(path,path,path,path,path,args["python"],path))
 	print("[+]- Freezing Finished ! :)")
 
 #this function is modules intaller 
@@ -78,7 +114,7 @@ def Installer():
 		scope=sys.argv[:].index("-c")
 		scope=sys.argv[scope+1]
 		count=0
-		with open("%s/.fire/Modules"%(home),"r") as file:
+		with open("%s/.fire/out/Modules"%(home),"r") as file:
 			for line in file.readlines(int(scope)):
 					try:
 						os.system("echo Installing >> %s/logs;date >> %s/loga;python%s -m pip install %s >> %s/logs"%(path,path,args["python"],line,path))
@@ -90,7 +126,7 @@ def Installer():
 		file.close()			
 
 	else:
-		with open("%s/.fire/Modules"%(home),"r") as file:
+		with open("%s/.fire/out/Modules"%(home),"r") as file:
 			for line in file.readlines():
 				try:
 					os.system("echo Intsalling >> %s/logs;date >> %s/logs;python%s -m pip install %s >> %s/logs"%(path,path,args["python"],line,path))
@@ -104,7 +140,7 @@ def Installer():
 #fine, this is main function for manage and run functions
 def upgrade(pipv=3):
 	print("[+]- Strated upgrading ...")
-	with open("%s/.fire/Modules"%(home),"r") as modules:
+	with open("%s/.fire/out/Modules"%(home),"r") as modules:
 		for line in modules:
 			co = "pip"+str(pipv)+" install  --upgrade "+line
 			print(co)
@@ -112,7 +148,7 @@ def upgrade(pipv=3):
 	print("[+]- Finished upgrading ...")
 def modules():
 	num = 0
-	with open("%s/.fire/Modules"%(home),"r") as modules:
+	with open("%s/.fire/out/Modules"%(home),"r") as modules:
 		for line in modules:
 			num += 1
 	print("[+]- number of your modules is --> %i"%num)
