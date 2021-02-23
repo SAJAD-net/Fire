@@ -86,7 +86,7 @@ def Initialize():
 						if line == "alias fire":
 							status = True
 					if status == False:
-						file.write("alias fire=\"python3 $HOME/.fire/app/fire,py\" ")
+						file.write("alias fire=\"python3 $HOME/.fire/app/fire.py\" ")
 				file.close()
 			elif file == ".zshrc":
 				with open(".zshrc", "a+") as file:
@@ -94,7 +94,7 @@ def Initialize():
 						if line == "alias fire":
 							status = True
 					if status == False:
-						file.write("alias fire=\"python3 $HOME/.fire/app/fire,py\" ")
+						file.write("alias fire=\"python3 $HOME/.fire/app/fire.py\" ")
 				file.close()	
 
 		print("[+]- fire app installed in %s/.fire"%home)
