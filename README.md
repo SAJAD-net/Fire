@@ -13,12 +13,11 @@
 	python3 fire.py or python3 fire.py -h
 
 ## PreView
+![fire](https://user-images.githubusercontent.com/71703544/108819027-46dfb480-7588-11eb-832c-3a6e9d43a4a4.png)
 
-![fire](https://user-images.githubusercontent.com/71703544/108030173-c0155f80-6ffc-11eb-8d42-3a82016fd784.png)
+![fire-1](https://user-images.githubusercontent.com/71703544/108819050-5232e000-7588-11eb-98fe-ada803a3cca4.png)
 
-![fire-1](https://user-images.githubusercontent.com/71703544/108030191-c73c6d80-6ffc-11eb-8158-c8139054f2a1.png)
-
-![fire-help](https://user-images.githubusercontent.com/71703544/108030706-aa546a00-6ffd-11eb-8b6a-8d3f1bb17537.png)
+![fire-2](https://user-images.githubusercontent.com/71703544/108819087-5eb73880-7588-11eb-8354-f3e27a677957.png)
 
 
 my email : sajadsajad.sch@gmail.com
