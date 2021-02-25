@@ -103,7 +103,7 @@ def Initialize():
 
 #this function is modules freezer
 def Freezer():
-	print("[+]- Freezing  modules ...")
+	print("[+]- Freezing modules ...")
 	os.system("echo Freezing >> %s/logs;date >> %s/logs;cp %s/Modules %s/Modules.backup >> %s/logs;python%s -m pip freeze > %s/Modules;"%(path,path,path,path,path,args["python"],path))
 	print("[+]- Freezing Finished ! :)")
 
